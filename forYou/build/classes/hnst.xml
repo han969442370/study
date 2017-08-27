@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rows>
+	<row>
+		<CheckData>6ad76370d045d6ba80335e3ac46f99b1</CheckData>
+		<declareDate>2016-01-14</declareDate>
+		<StoCustomerID>91405</StoCustomerID>
+		<ecpCode>4403960864</ecpCode>
+		<ecpName>深圳市通拓科技有限公司</ecpName>
+		<orderNo>27592265</orderNo>
+		<LogisticsNo>220459925980</LogisticsNo>
+		<TrackingNo>220459925980</TrackingNo>
+		<shipper>HUGO CHEN</shipper>
+		<shipperAddress>CALLE REAL 1A.TORREJON DE LA CALSADA 28991,MADRID
+		</shipperAddress>
+		<shipperTelephone>0034-688560888</shipperTelephone>
+		<shipperCountryCus>312</shipperCountryCus>
+		<Consignor>HUGO CHEN</Consignor>
+		<TelephoneNum>0034-688560888</TelephoneNum>
+		<ConsignorAdd>CALLE REAL 1A.TORREJON DE LA CALSADA 28991,MADRID
+		</ConsignorAdd>
+		<consignee>曾蔚吾</consignee>
+		<idType>TOC001</idType>
+		<customerId>430522199005026370</customerId>
+		<consigneeTelephone>13257327595</consigneeTelephone>
+		<consigneeAddress>布吉坂田岗头市场新围仔新梅6巷</consigneeAddress>
+		<consigneeCountryCiq>156</consigneeCountryCiq>
+		<consigneeCountryCus>142</consigneeCountryCus>
+		<weight>0.11</weight>
+		<netWeight>0.11</netWeight>
+		<packNum>1</packNum>
+		<quantity>1</quantity>
+		<ieType>I</ieType>
+		<note></note>
+		<totalLogisticsNo>322029341</totalLogisticsNo>
+		<goodsName>西班牙Abedulce天然代糖剂 木糖醇 500g,西班牙Abedulce天然代糖剂 木糖醇 500g
+		</goodsName>
+		<destinationPort></destinationPort>
+		<packageTypeCus>2</packageTypeCus>
+		<packageTypeCiq>390</packageTypeCiq>
+		<transportationMethod>5</transportationMethod>
+		<shipCodeInsp>50</shipCodeInsp>
+		<tradeCountry>142</tradeCountry>
+		<jcbOrderTime>2015-12-29</jcbOrderTime>
+		<jcbOrderPort>4604</jcbOrderPort>
+		<transferType>5</transferType>
+		<jcbOrderPortInsp>410010</jcbOrderPortInsp>
+		<shipName>集装箱车</shipName>
+		<shipNameInsp>飞机</shipNameInsp>
+		<applyPortInsp>410010</applyPortInsp>
+		<transferRegionInsp>156</transferRegionInsp>
+		<cbeCodeInsp>4700646646</cbeCodeInsp>
+		<coinInsp>999</coinInsp>
+		<cbeCode>4403960864</cbeCode>
+		<cbeName>深圳市通拓科技有限公司</cbeName>
+		<declarePort>4604</declarePort>
+		<modifyMark>1</modifyMark>
+		<stockFlag>1</stockFlag>
+		<goodsItem>
+			<itemNo>4403960864IN316</itemNo>
+			<itemName>西班牙Abedulce天然代糖剂 木糖醇 500g</itemName>
+			<itemModel>500g/罐</itemModel>
+			<itemQuantity>1</itemQuantity>
+			<itemDescribe>1</itemDescribe>
+		</goodsItem>
+	</row>
+</rows> 

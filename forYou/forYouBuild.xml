@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="main" basedir="." name="forYou">
+	<property file="${basedir}/src/myProperty.properties"></property>
+	<property name="warDist" value="D:/apache-tomcat-8.0.26/webapps"></property>
+	<property name="webContentUrl" value="${basedir}/WebContent"></property>
+	<property name="webInfUrl" value="${basedir}/WebContent/WEB-INF"></property>
+	<fileset id="sourcefiles" includes="**/*.java" dir="src"></fileset>
+	<echo>sourcefiles = ${toString:sourcefiles}   wardist = ${toString:warDist}</echo>
+	
+	<!--默认执行任务 -->
+    <target name="main" depends="compile, compress,use-file,printMessage,createFile" description="Main target">
+       <echo>Building the .jar file.</echo>
+    </target>
+	
+	<!--判断文件是否存在 -->
+	<target name="use-file" depends="check-user-file" if="${file.exists}">
+	   <echo>judging by if is successful</echo>
+	</target>
+	<target name="check-user-file" unless="file.exists">
+	    <available property="file.exists" file="${basedir}/src/yaya/Test.java"></available>
+	</target>
+	<!--判断文件是否存在 -->
+	
+	<!--读取属性文件信息-->
+	<target name="printMessage" unless="${welcom.info}"><echo>welcome to here!</echo></target>
+	<!--读取属性文件信息-->
+	
+	<!--创建文件-->
+	<target name="createFile">
+		<mkdir dir="${basedir}/src/app"/>
+	</target>
+	<!--创建文件-->
+	
+	<!--如果文件存在则删除文件-->
+	<target name="check-del-file">
+	   <available property="delFile.exists" file = "${basedir}/src/app/example"></available>
+	</target>
+	<target name="deleteFile" if="${delFile.exists}" depends="check-del-file">
+	    <delete dir="${basedir}/src/app"></delete>
+		<delete dir="${basedir}/src/app" includes="**/*.java"></delete>
+		<delete dir="${basedir}/src/app" includes="**/*.class"></delete>
+		<echo append="true" file="${basedir}/src/myProperty.properties">delete file successful!</echo>
+	</target>
+	<!--如果文件存在则删除文件-->
+	
+	<!--文件以及文件夹的拷贝-->
+		<target name="copy">
+			<copy todir="${basedir}/src/app">
+				<!--拷贝文件集-->
+				<fileset dir="${basedir}/src/yaya" includes="**/*.java"></fileset>
+				<filterset><filter token="DATE" value="${TODAY}"/></filterset>
+			</copy>
+			<!--copydir src="${basedir}/src/yaya" dest="${basedir}/src/app"></copydir-->
+		</target>
+	<!--文件以及文件夹的拷贝-->
+	
+	<!--编译-->
+    <target name="compile" description="Compilation target">
+    	<javac destdir="${basedir}/src/app" includeantruntime="true">
+    		   <src path="${basedir}/src/yaya"></src>
+    		   <!--src path="${basedir}/src/yaya/anotation"></src-->
+    		   <!--include name="**/*Test.java"/-->
+	    	   <!--fileset dir="${basedir}/src/yaya" id="sourcefiles">
+	               <include name="**/Test*.java"/>
+	           </fileset-->
+    	</javac>
+    </target>
+	<!--编译-->
+	
+	<!--打jar包-->
+    <target name="compress" depends="compile" description="Compression target">
+    	<!--将编译之后的class文件打成jar 到src/app目录下-->
+       <jar destfile="${basedir}/src/app/app.jar" basedir="${basedir}/src/yaya" includes="**/*.class" />
+        <!--将未编译的java文件打成jar 到src目录下-->
+       <jar destfile="${basedir}/src/app1.jar">
+          <fileset dir="${basedir}/src/yaya">
+               <include name="**/*.java"/>
+          </fileset>
+       </jar>
+    </target>
+	<!--打jar包-->
+	
+	<!--web app打成war包-->
+	    <target name="war" description="将web app打成war包发布">
+	       <war destfile="${warDist}/forYou.war" webxml="${webInfUrl}/web.xml">
+	           <!--整合lib下工程所需要的jar包-->
+	       	   <lib dir="${webInfUrl}/lib"></lib>
+	       	   <!--整合所有的html、jsp等文件-->
+	       	   <fileset dir="${webContentUrl}" casesensitive="yes"><filename name="**/*.js"/></fileset>
+	       	   <fileset dir="${webContentUrl}" casesensitive="yes"><filename name="**/*.css"/></fileset>
+	       	   <fileset dir="${webContentUrl}" casesensitive="yes"><filename name="**/*.gif"/></fileset>
+	       	   <fileset dir="${webContentUrl}" casesensitive="yes"><filename name="**/*.jsp"/></fileset>
+	       	   <!--整合所有的java类-->
+	       	   <classes dir="${basedir}/src/yaya"></classes>
+	       	   <!--整合所有的图片、js、css等文件-->
+	       	   <!--zipfileset></zipfileset-->
+	       </war>
+	    </target>
+	<!--web app打成war包-->
+</project>
